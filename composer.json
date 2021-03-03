@@ -1,0 +1,51 @@
+{
+    "name": "spartan/cache",
+    "description": "Spartan Cache library",
+    "type": "library",
+    "keywords": [
+        "library",
+        "spartan",
+        "cache"
+    ],
+    "homepage": "https://spartanphp.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Iulian N.",
+            "email": "iulian@spartanphp.com",
+            "homepage": "https://spartanphp.com",
+            "role": "developer"
+        }
+    ],
+    "support": {
+        "email": "support@spartanphp.com",
+        "docs": "https://docs.spartanphp.com"
+    },
+    "require": {
+        "php": ">=7.4",
+        "laminas/laminas-cache": "^2.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spartan\\Cache\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "spartan/service": "^0.1.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spartan\\Cache\\Test\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+    },
+    "extra": {
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
