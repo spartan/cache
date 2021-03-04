@@ -45,6 +45,23 @@
     "scripts": {
     },
     "extra": {
+        "spartan": {
+            "install": {
+                "env": {
+                    "CACHE_ADAPTER": "memory",
+                    "CACHE_TTL": "60"
+                },
+                "copy": {
+                    "config/cache.php": "config/cache.php"
+                },
+                "commands": [
+                    "__DIR__ . '/../vendor/spartan/cache/src/Command'"
+                ],
+                "services": [
+                    "Spartan\\Cache\\ServiceProvider::class"
+                ]
+            }
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
