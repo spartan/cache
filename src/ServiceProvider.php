@@ -22,7 +22,7 @@ use Spartan\Service\Pipeline;
  */
 class ServiceProvider implements ProviderInterface
 {
-    /** @var mixed[]  */
+    /** @var mixed[] */
     protected array $config = [];
 
     /**
@@ -39,14 +39,16 @@ class ServiceProvider implements ProviderInterface
     public function singletons(): array
     {
         return [
-            'cache'                       => $this->config['standard'] == 'psr6'
+            'cache'         => $this->config['standard'] == 'psr6'
                 ? CacheInterface::class
                 : CacheItemPoolInterface::class,
+            'cache-storage' => function ($container) {
+                return $this->storage();
+            },
 
             CacheInterface::class         => function ($container) {
                 return new SimpleCacheDecorator($this->storage());
             },
-
             CacheItemPoolInterface::class => function ($container) {
                 return new CacheItemPoolDecorator($this->storage());
             },
