@@ -1,4 +1,11 @@
 # Changelog
+### [0.1.3](https://github.com/spartan/cache/compare/v0.1.2...v0.1.3) (2021-03-13)
+
+
+### New
+
+* Cache::storage() helper method ([5555499](https://github.com/spartan/cache/commit/55554997f27ce79ae8a3702cec3ce5c4e518ce41))
+
 ### [0.1.2](https://github.com/spartan/cache/compare/v0.1.1...v0.1.2) (2021-03-07)
 
 
