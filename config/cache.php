@@ -13,7 +13,7 @@ return [
      * - mongo
      *
      * Full list:
-     * @see https://docs.laminas.dev/laminas-cache/storage/adapter/
+     * @see https://docs.laminas.dev/laminas-cache/v3/storage/adapter/
      */
     'adapter'    => getenv('CACHE_ADAPTER') ?: 'memory',
 
@@ -30,14 +30,14 @@ return [
     /*
      * Cache plugins
      *
-     * @see https://docs.laminas.dev/laminas-cache/storage/plugin/
+     * @see https://docs.laminas.dev/laminas-cache/v3/storage/plugin/
      */
     'plugins'    => [],
 
     /*
      * APC cache adapter
      *
-     * @see https://docs.laminas.dev/laminas-cache/storage/adapter/#the-apc-adapter
+     * @see https://docs.laminas.dev/laminas-cache/v3/storage/adapter/#the-apc-adapter
      */
     'apc'        => [
         'namespace' => getenv('APP_SLUG'),
@@ -59,7 +59,7 @@ return [
     /*
      * Dba cache adapter
      *
-     * @see https://docs.laminas.dev/laminas-cache/storage/adapter/#the-dba-adapter
+     * @see https://docs.laminas.dev/laminas-cache/v3/storage/adapter/#the-dba-adapter
      */
     'dba'        => [
         'namespace' => getenv('APP_SLUG'),
@@ -69,7 +69,7 @@ return [
     /*
      * Filesystem cache adapter
      *
-     * @see https://docs.laminas.dev/laminas-cache/storage/adapter/#the-filesystem-adapter
+     * @see https://docs.laminas.dev/laminas-cache/v3/storage/adapter/#the-filesystem-adapter
      */
     'filesystem' => [
         'namespace' => getenv('APP_SLUG'),
@@ -79,7 +79,7 @@ return [
     /*
      * Memcached cache adapter
      *
-     * @see https://docs.laminas.dev/laminas-cache/storage/adapter/#the-memcached-adapter
+     * @see https://docs.laminas.dev/laminas-cache/v3/storage/adapter/#the-memcached-adapter
      */
     'memcached'  => [
         'namespace' => getenv('APP_SLUG'),
@@ -90,7 +90,7 @@ return [
     /*
      * Redis cache adapter
      *
-     * @see https://docs.laminas.dev/laminas-cache/storage/adapter/#the-redis-adapter
+     * @see https://docs.laminas.dev/laminas-cache/v3/storage/adapter/#the-redis-adapter
      */
     'redis'      => [
         'namespace' => getenv('APP_SLUG'),
@@ -100,7 +100,7 @@ return [
     /*
      * Memory cache adapter
      *
-     * @see https://docs.laminas.dev/laminas-cache/storage/adapter/#the-memory-adapter
+     * @see https://docs.laminas.dev/laminas-cache/v3/storage/adapter/#the-memory-adapter
      */
     'memory'     => [
         'namespace' => getenv('APP_SLUG'),
@@ -110,7 +110,7 @@ return [
     /*
      * Mongo cache adapter
      *
-     * @see https://docs.laminas.dev/laminas-cache/storage/adapter/#the-mongodb-adapter
+     * @see https://docs.laminas.dev/laminas-cache/v3/storage/adapter/#the-mongodb-adapter
      */
     'mongo'     => [
         'namespace' => getenv('APP_SLUG'),

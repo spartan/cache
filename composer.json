@@ -22,8 +22,9 @@
         "docs": "https://docs.spartanphp.com"
     },
     "require": {
-        "php": ">=7.4",
-        "laminas/laminas-cache": "^2.10"
+        "php": ">=8.0",
+        "laminas/laminas-cache-storage-adapter-filesystem": "^2.3.0",
+        "laminas/laminas-cache": "^3.9"
     },
     "autoload": {
         "psr-4": {

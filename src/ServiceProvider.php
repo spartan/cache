@@ -2,10 +2,9 @@
 
 namespace Spartan\Cache;
 
+use Laminas\Cache\Service\StorageAdapterFactoryInterface;
 use Laminas\Cache\Psr\CacheItemPool\CacheItemPoolDecorator;
 use Laminas\Cache\Psr\SimpleCache\SimpleCacheDecorator;
-use Laminas\Cache\Storage\StorageInterface;
-use Laminas\Cache\StorageFactory;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Container\ContainerInterface;
 use Psr\SimpleCache\CacheInterface;
@@ -42,33 +41,28 @@ class ServiceProvider implements ProviderInterface
             'cache'         => $this->config['standard'] == 'psr6'
                 ? CacheInterface::class
                 : CacheItemPoolInterface::class,
-            'cache-storage' => function ($container) {
-                return $this->storage();
-            },
 
             CacheInterface::class         => function ($container) {
-                return new SimpleCacheDecorator($this->storage());
+                $storageFactory = $container->get(StorageAdapterFactoryInterface::class);
+                $storage        = $storageFactory->create(
+                    $this->config['adapter'],
+                    $this->config[$this->config['adapter']],
+                    $this->config['plugins']
+                );
+
+                return new SimpleCacheDecorator($storage);
             },
             CacheItemPoolInterface::class => function ($container) {
-                return new CacheItemPoolDecorator($this->storage());
+                $storageFactory = $container->get(StorageAdapterFactoryInterface::class);
+                $storage        = $storageFactory->create(
+                    $this->config['adapter'],
+                    $this->config[$this->config['adapter']],
+                    $this->config['plugins']
+                );
+
+                return new CacheItemPoolDecorator($storage);
             },
         ];
-    }
-
-    /**
-     * @return StorageInterface
-     */
-    public function storage(): StorageInterface
-    {
-        return StorageFactory::factory(
-            [
-                'adapter' => [
-                    'name'    => $this->config['adapter'],
-                    'options' => $this->config[$this->config['adapter']],
-                ],
-                'plugins' => $this->config['plugins'],
-            ]
-        );
     }
 
     /**

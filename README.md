@@ -17,7 +17,7 @@
 
 ## Requirements
 
-- PHP `v7.4`
+- PHP `v8.0`
 - *nix flavor
 
 

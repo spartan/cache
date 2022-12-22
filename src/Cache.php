@@ -40,17 +40,6 @@ class Cache
     }
 
     /**
-     * @return \Laminas\Cache\Storage\Adapter\AbstractAdapter
-     * @throws \ReflectionException
-     * @throws \Spartan\Service\Exception\ContainerException
-     * @throws \Spartan\Service\Exception\NotFoundException
-     */
-    public static function storage()
-    {
-        return container()->get('cache-storage');
-    }
-
-    /**
      * @param string  $name
      * @param mixed[] $args
      *
