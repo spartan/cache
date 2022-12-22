@@ -1,4 +1,11 @@
 # Changelog
+## [0.2.0](https://github.com/spartan/cache/compare/v0.1.3...v0.2.0) (2022-12-22)
+
+
+### New
+
+* switch to php v8 ([95c6611](https://github.com/spartan/cache/commit/95c661176ba37e70220d919a3beefcc18f251b69))
+
 ### [0.1.3](https://github.com/spartan/cache/compare/v0.1.2...v0.1.3) (2021-03-13)
 
 
