@@ -1,4 +1,11 @@
 # Changelog
+### [0.2.1](https://github.com/spartan/cache/compare/v0.2.0...v0.2.1) (2022-12-22)
+
+
+### Fixes
+
+* fix implementation details after upgrade to laminas v3 ([d4bb434](https://github.com/spartan/cache/commit/d4bb4343f79f53cd2796197e7d79591cdc7feaaf))
+
 ## [0.2.0](https://github.com/spartan/cache/compare/v0.1.3...v0.2.0) (2022-12-22)
 
 
