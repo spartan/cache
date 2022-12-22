@@ -5,6 +5,8 @@ namespace Spartan\Cache;
 use Laminas\Cache\Service\StorageAdapterFactoryInterface;
 use Laminas\Cache\Psr\CacheItemPool\CacheItemPoolDecorator;
 use Laminas\Cache\Psr\SimpleCache\SimpleCacheDecorator;
+use Laminas\Cache\Storage\Adapter\Memcached;
+use Laminas\Cache\Storage\Adapter\Memcached\AdapterPluginManagerDelegatorFactory;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Container\ContainerInterface;
 use Psr\SimpleCache\CacheInterface;
@@ -38,27 +40,28 @@ class ServiceProvider implements ProviderInterface
     public function singletons(): array
     {
         return [
-            'cache'         => $this->config['standard'] == 'psr6'
+            'cache' => $this->config['standard'] == 'psr6'
                 ? CacheInterface::class
                 : CacheItemPoolInterface::class,
 
             CacheInterface::class         => function ($container) {
-                $storageFactory = $container->get(StorageAdapterFactoryInterface::class);
-                $storage        = $storageFactory->create(
-                    $this->config['adapter'],
-                    $this->config[$this->config['adapter']],
-                    $this->config['plugins']
-                );
+                $adapterName = $this->config['adapter'];
+                $options     = $this->config[$this->config['adapter']];
+                $plugins     = $this->config['plugins']; // not implemented
+
+                $storageClassName = 'Laminas\\Cache\\Storage\\Adapter\\' . ucfirst($adapterName);
+                $storage          = new $storageClassName($options);
 
                 return new SimpleCacheDecorator($storage);
             },
+
             CacheItemPoolInterface::class => function ($container) {
-                $storageFactory = $container->get(StorageAdapterFactoryInterface::class);
-                $storage        = $storageFactory->create(
-                    $this->config['adapter'],
-                    $this->config[$this->config['adapter']],
-                    $this->config['plugins']
-                );
+                $adapterName = $this->config['adapter'];
+                $options     = $this->config[$this->config['adapter']];
+                $plugins     = $this->config['plugins']; // not implemented
+
+                $storageClassName = 'Laminas\\Cache\\Storage\\Adapter\\' . ucfirst($adapterName);
+                $storage          = new $storageClassName($options);
 
                 return new CacheItemPoolDecorator($storage);
             },
