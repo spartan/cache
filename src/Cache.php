@@ -66,8 +66,11 @@ class Cache
      */
     public static function getAlways(string $key, \Closure $callback, int $ttl = 0)
     {
-        if (self::adapter()->has($key)) {
-            return self::adapter()->get($key);
+        // single get() with a sentinel: has() + get() races with expiry/deletion and returns null
+        $miss  = new \stdClass();
+        $value = self::adapter()->get($key, $miss);
+        if ($value !== $miss) {
+            return $value;
         }
 
         $value = $callback();
