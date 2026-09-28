@@ -1,4 +1,11 @@
 # Changelog
+### [0.2.2](https://github.com/spartan/cache/compare/v0.2.1...v0.2.2) (2026-09-28)
+
+
+### Fixes
+
+* race condition with getAlways ([0b80804](https://github.com/spartan/cache/commit/0b8080411a8f22e90aac55415139d7f49d54cc36))
+
 ### [0.2.1](https://github.com/spartan/cache/compare/v0.2.0...v0.2.1) (2022-12-22)
 
 
